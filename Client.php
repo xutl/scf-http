@@ -22,13 +22,22 @@ class Client
      * Client constructor.
      * @param array $config
      */
-    public function __construct(array $config = [])
+    public function __construct($config = [])
     {
         if (!empty($config)) {
             foreach ($config as $name => $value) {
                 $object->$name = $value;
             }
         }
+    }
+
+    /**
+     * @param array $config
+     * @return Client
+     */
+    public static function getInstance($config = [])
+    {
+        return new self($config);
     }
 
     /**
