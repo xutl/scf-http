@@ -1,0 +1,29 @@
+{
+  "name": "xutl/scf-http",
+  "description": "scf http",
+  "keywords": [
+    "scf",
+    "http"
+  ],
+  "homepage": "http://www.yuncms.net/",
+  "type": "project",
+  "license": "MIT",
+  "support": {
+    "issues": "https://github.com/xutl/scf-http/issues",
+    "source": "https://github.com/xutl/scf-http/sixiang"
+  },
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=7.0.0",
+   "guzzlehttp/guzzle": "~6.3"
+  },
+  "repositories": [
+    {
+      "packagist": false
+    },
+    {
+      "type": "composer",
+      "url": "https://packagist.phpcomposer.com"
+    }
+  ]
+}
