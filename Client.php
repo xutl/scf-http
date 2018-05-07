@@ -7,16 +7,29 @@
 
 namespace xutl\scf\http;
 
-use GuzzleHttp\Client;
+use GuzzleHttp\Client as BaseClient;
 use Psr\Http\Message\ResponseInterface;
 
 class Client
 {
-    /** @var string  */
+    /** @var string */
     public $baseUri = '';
 
-    /** @var float  */
+    /** @var float */
     public $timeout = 5.0;
+
+    /**
+     * Client constructor.
+     * @param array $config
+     */
+    public function __construct(array $config = [])
+    {
+        if (!empty($config)) {
+            foreach ($config as $name => $value) {
+                $object->$name = $value;
+            }
+        }
+    }
 
     /**
      * @return string
@@ -95,7 +108,7 @@ class Client
      */
     protected function getHttpClient(array $options = [])
     {
-        return new Client($options);
+        return new BaseClient($options);
     }
 
     /**
