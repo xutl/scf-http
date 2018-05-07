@@ -47,7 +47,7 @@ class Client
      * @param array $headers
      * @return array
      */
-    protected function get($endpoint, $query = [], $headers = [])
+    public function get($endpoint, $query = [], $headers = [])
     {
         return $this->request('get', $endpoint, [
             'headers' => $headers,
@@ -63,7 +63,7 @@ class Client
      * @param array $headers
      * @return array
      */
-    protected function post($endpoint, $params = [], $headers = [])
+    public function post($endpoint, $params = [], $headers = [])
     {
         return $this->request('post', $endpoint, [
             'headers' => $headers,
@@ -79,7 +79,7 @@ class Client
      * @param array $options http://docs.guzzlephp.org/en/latest/request-options.html
      * @return array
      */
-    protected function request($method, $endpoint, $options = [])
+    public function request($method, $endpoint, $options = [])
     {
         return $this->unwrapResponse($this->getHttpClient($this->getBaseOptions())->{$method}($endpoint, $options));
     }
@@ -89,7 +89,7 @@ class Client
      *
      * @return array
      */
-    protected function getBaseOptions()
+    public function getBaseOptions()
     {
         $options = [
             'base_uri' => $this->getBaseUri(),
@@ -106,7 +106,7 @@ class Client
      * @return \GuzzleHttp\Client
      * @codeCoverageIgnore
      */
-    protected function getHttpClient(array $options = [])
+    public function getHttpClient(array $options = [])
     {
         return new BaseClient($options);
     }
@@ -117,7 +117,7 @@ class Client
      * @param \Psr\Http\Message\ResponseInterface $response
      * @return array|mixed
      */
-    protected function unwrapResponse(ResponseInterface $response)
+    public function unwrapResponse(ResponseInterface $response)
     {
         $contentType = $response->getHeaderLine('Content-Type');
         $contents = $response->getBody()->getContents();
